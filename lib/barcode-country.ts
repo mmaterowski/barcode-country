@@ -4,8 +4,196 @@ export function getCountry(EAN13: string): string {
     if (getFormat(EAN13) !== 'GTIN-13') throw new Error(`Only EAN-13 Barcodes can recognized. ${EAN13} has invalid format: ${getFormat(EAN13)}`)
     const countryPrefix = Number(EAN13.substring(0, 3));
     switch (true) {
-        case (countryPrefix >= 0 && countryPrefix <= 19):
-            return 'United States of America'
+        case (countryPrefix >= 0 && countryPrefix <= 19 || countryPrefix >= 30 && countryPrefix <= 39 || countryPrefix >= 60 && countryPrefix <= 99):
+            return 'USA and Canada'
+        case (countryPrefix >= 20 && countryPrefix <= 29 || countryPrefix >= 40 && countryPrefix <= 49 || countryPrefix >= 200 && countryPrefix <= 299):
+            return 'Restricted distribution'
+        case (countryPrefix >= 50 && countryPrefix <= 59):
+            return 'GS1 US reserved for future use'
+        case (countryPrefix >= 100 && countryPrefix <= 139):
+            return 'USA'
+        case (countryPrefix == 380):
+            return 'Bulgaria'
+        case (countryPrefix == 383):
+            return 'Slovenia'
+        case (countryPrefix == 385):
+            return 'Croatia'
+        case (countryPrefix == 387):
+            return 'Bosnia and Herzegovina'
+        case (countryPrefix == 389):
+            return 'Montenegro'
+        case (countryPrefix == 390):
+            return 'Kosovo'
+        case (countryPrefix >= 400 && countryPrefix <= 440):
+            return 'Germany'
+        case (countryPrefix >= 450 && countryPrefix <= 459 || countryPrefix >= 490 && countryPrefix <= 499):
+            return 'Japan'
+        case (countryPrefix >= 460 && countryPrefix <= 469):
+            return 'Russia'
+        case (countryPrefix == 470):
+            return ' Kyrgyzstan'
+        case (countryPrefix == 471):
+            return 'Taiwan'
+        case (countryPrefix == 471):
+            return 'Taiwan'
+        case (countryPrefix == 474):
+            return 'Estonia'
+        case (countryPrefix === 475):
+            return 'Latvia'
+        case (countryPrefix === 476):
+            return 'Azerbaijan'
+        case (countryPrefix === 477):
+            return 'Lithuania'
+        case (countryPrefix === 478):
+            return 'Uzbekistan'
+        case (countryPrefix === 479):
+            return 'Sri Lanka'
+        case (countryPrefix === 480):
+            return 'Philippines'
+        case (countryPrefix === 481):
+            return 'Belarus'
+        case (countryPrefix === 482):
+            return 'Ukraine'
+        case (countryPrefix === 483):
+            return 'Turkmenistan'
+        case (countryPrefix === 484):
+            return 'Moldova'
+        case (countryPrefix === 485):
+            return 'Armenia'
+        case (countryPrefix === 486):
+            return 'Georgia'
+        case (countryPrefix === 487):
+            return 'Kazakhstan'
+        case (countryPrefix === 488):
+            return 'Tajikistan'
+        case (countryPrefix === 489):
+            return 'Hong Kong'
+        case (countryPrefix >= 500 && countryPrefix <= 509):
+            return 'United Kingdom'
+        case (countryPrefix >= 520 && countryPrefix <= 521):
+            return 'Greece'
+        case (countryPrefix === 528):
+            return 'Lebanon'
+        case (countryPrefix === 529):
+            return 'Cyprus'
+        case (countryPrefix === 530):
+            return 'Albania'
+        case (countryPrefix === 531):
+            return 'North Macedonia'
+        case (countryPrefix === 535):
+            return 'Malta'
+        case (countryPrefix === 539):
+            return 'Ireland'
+        case (countryPrefix >= 540 && countryPrefix <= 549):
+            return 'Belgium and Luxemburg'
+        case (countryPrefix === 560):
+            return 'Portugal'
+        case (countryPrefix === 569):
+            return 'Iceland'
+        case (countryPrefix >= 570 && countryPrefix <= 579):
+            return 'Denmark, Faroe Islands and Greenland'
+        case (countryPrefix === 590):
+            return 'Poland'
+        case (countryPrefix === 594):
+            return 'Romania'
+        case (countryPrefix === 599):
+            return 'Hungary'
+        case (countryPrefix >= 600 && countryPrefix <= 601):
+            return 'South Africa'
+        case (countryPrefix === 603):
+            return 'Ghana'
+        case (countryPrefix === 604):
+            return 'Senegal'
+        case (countryPrefix === 608):
+            return 'Bahrain'
+        case (countryPrefix === 609):
+            return 'Mauritius'
+        case (countryPrefix === 611):
+            return 'Morocco'
+        case (countryPrefix === 613):
+            return 'Algeria'
+        case (countryPrefix === 615):
+            return 'Nigeria'
+        case (countryPrefix === 616):
+            return 'Kenya'
+        case (countryPrefix === 617):
+            return 'Cameroon'
+        case (countryPrefix === 618):
+            return 'Ivory Coast'
+        case (countryPrefix === 619):
+            return 'Tunisia'
+        case (countryPrefix === 620):
+            return 'Tanzania'
+        case (countryPrefix === 621):
+            return 'Syria'
+        case (countryPrefix === 622):
+            return 'Egypt'
+        case (countryPrefix === 623):
+            return 'Brunei'
+        case (countryPrefix === 624):
+            return 'Libya'
+        case (countryPrefix === 625):
+            return 'Jordan'
+        case (countryPrefix === 626):
+            return 'Iran'
+        case (countryPrefix === 627):
+            return 'Kuwait'
+        case (countryPrefix === 628):
+            return 'Saudi Arabia'
+        case (countryPrefix === 629):
+            return 'United Arab Emirates'
+        case (countryPrefix === 630):
+            return 'Qatar'
+        case (countryPrefix === 631):
+            return 'Namibia'
+        case (countryPrefix >= 640 && countryPrefix <= 649):
+            return 'Finland'
+        case (countryPrefix >= 690 && countryPrefix <= 699):
+            return 'China'
+        case (countryPrefix >= 700 && countryPrefix <= 709):
+            return 'Norway'
+        case (countryPrefix === 729):
+            return 'Israel'
+        case (countryPrefix >= 730 && countryPrefix <= 739):
+            return 'Sweden'
+        case (countryPrefix === 740):
+            return 'Guatemala'
+        case (countryPrefix === 741):
+            return 'El Salvador'
+        case (countryPrefix === 742):
+            return 'Honduras'
+        case (countryPrefix === 743):
+            return 'Nicaragua'
+        case (countryPrefix === 744):
+            return 'Costa Rica'
+        case (countryPrefix === 745):
+            return 'Panama'
+        case (countryPrefix === 746):
+            return 'Dominican Republic'
+        case (countryPrefix === 750):
+            return 'Mexico'
+        case (countryPrefix >= 754 && countryPrefix <= 755):
+            return 'Canada'
+        case (countryPrefix === 759):
+            return 'Venezuela'
+        case (countryPrefix >= 760 && countryPrefix <= 769):
+            return 'Switzerland and  Liechtenstein'
+        case (countryPrefix >= 770 && countryPrefix <= 771):
+            return 'Colombia'
+        case (countryPrefix === 773):
+            return 'Uruguay'
+        case (countryPrefix === 775):
+            return 'Peru'
+        case (countryPrefix === 777):
+            return 'Bolivia'
+        case (countryPrefix === 778 || countryPrefix === 779):
+            return 'Argentina'
+        case (countryPrefix === 780):
+            return 'Chile'
+        case (countryPrefix === 784):
+            return 'Paraguay'
+        case (countryPrefix === 786):
+            return 'Ecuador'
         default:
             break;
     }
@@ -16,49 +204,7 @@ export function getCountry(EAN13: string): string {
 }
 
 
-// 000 - 019	United States of America
-// 020 - 029	restricted distribution
-// 030 - 039	United States of America
-// 040 - 049	restricted distribution
-// 050 - 059	coupons
-// 060 - 139	United States of America
-// 200 - 299	local codes for internal company usage
-// 300 - 379	France
-// 380	Bulgaria
-// 383	Slovenija
-// 385	Croatia
-// 387	Bosnia-Herzegovina
-// 389	Montenegro
-// 400 - 440	Germany
-// 450 - 459	Japan
-// 460 - 469	Russia
-// 470	Kyrgyzstan
-// 471	Taiwan
-// 474	Estonia
-// 475	Latvia
-// 476	Azerbaijan
-// 477	Lithuania
-// 478	Uzbekistan
-// 479	Sri Lanka
-// 480	Philippines
-// 481	Belarus
-// 482	Ukraine
-// 484	Moldova
-// 485	Armenia
-// 486	Georgia
-// 487	Kazakstan
-// 488	Tajikistan
-// 489	Hong Kong
-// 490 - 499	Japan
-// 500 - 509	UK
-// 520 - 521	Greece
-// 528	Lebanon
-// 529	Cyprus
-// 530	Albania
-// 531	Macedonia
-// 535	Malta
-// 539	Ireland
-// 540 - 549	Belgium, Luxembourg
+
 // 560	Portugal
 // 569	Iceland
 // 570 - 579	Denmark
